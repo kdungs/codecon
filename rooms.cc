@@ -12,7 +12,8 @@ class Room {
   auto book(unsigned start, unsigned nslots) -> bool {
     start -= 1;  // correct indexing
     assert(start + nslots < NUM_SLOTS);
-    if (std::any_of(std::begin(slots_) + start, std::begin(slots_) + nslots,
+    if (std::any_of(std::begin(slots_) + start,
+                    std::begin(slots_) + start + nslots,
                     [](bool x) { return x; })) {
       return false;
     }
@@ -24,7 +25,8 @@ class Room {
   auto available(unsigned slot, unsigned nslots) const noexcept -> bool {
     slot -= 1;  // correct indexing
     assert(slot + nslots < NUM_SLOTS);
-    return std::all_of(std::begin(slots_) + slot, std::begin(slots_) + nslots,
+    return std::all_of(std::begin(slots_) + slot,
+                       std::begin(slots_) + slot + nslots,
                        [](bool x) { return !x; });
   }
 
