@@ -2,11 +2,9 @@ CXX=clang++
 CXXFLAGS=-O3 -Weverything -Werror -pedantic -std=c++11
 CXXFLAGS+=-Wno-c++98-compat -Wno-missing-prototypes -Wno-padded
 
-all: gloves rooms test
+TARGETS=gloves rooms
 
-test:
-	@python tests.py
+all: ${TARGETS}
 
 clean:
-	rm -f gloves
-	rm -f rooms
+	rm -f ${TARGETS}
