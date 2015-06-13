@@ -5,7 +5,7 @@ Solving the assignments for the [Bloomberg CodeCon 2015](http://codecon.bloomber
 ## Progress
 
  * [x] Matching Gloves
- * [ ] Conference Room Scheduler
+ * [x] Conference Room Scheduler
  * [ ] Golf Course
  * [ ] Maze Solver
  * [ ] Apples and Oranges
