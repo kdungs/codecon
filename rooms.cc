@@ -10,6 +10,7 @@ class Room {
  public:
   static const std::size_t NUM_SLOTS = 32;
   auto book(unsigned start, unsigned nslots) -> bool {
+    start -= 1;  // correct indexing
     assert(start + nslots < NUM_SLOTS);
     if (std::any_of(std::begin(slots_) + start, std::begin(slots_) + nslots,
                     [](bool x) { return x; })) {
@@ -21,6 +22,7 @@ class Room {
   }
 
   auto available(unsigned slot, unsigned nslots) const noexcept -> bool {
+    slot -= 1;  // correct indexing
     assert(slot + nslots < NUM_SLOTS);
     return std::all_of(std::begin(slots_) + slot, std::begin(slots_) + nslots,
                        [](bool x) { return !x; });
