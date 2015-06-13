@@ -1,19 +1,5 @@
-# codecon-2015
-Solving the assignments for the [Bloomberg CodeCon 2015](http://codecon.bloomberg.com/2015-finals) finals for fun.
+# Bloomberg CodeCon Challenger Series
 
+My solutions to the [Bloomberg CodeCon Challenger Series](http://codecon.bloomberg.com/challenger-series). Everything in C++11 for fun and profit.
 
-## Progress
-
- * [x] Matching Gloves
- * [x] Conference Room Scheduler
- * [ ] Golf Course
- * [ ] Maze Solver
- * [ ] Apples and Oranges
- * [ ] Galactic Exchange
- * [ ] Ring of Fungi
- * [ ] Liar Minesweeper
-
-
-## Disclaimer
-
-I did not participate in the competition. I am just trying to solve these problems for fun. There are no guarantees (except the tests) that my code is correct. I use C++11 and try to solve the problems in order.
+Code licensed under terms of the [MIT License](LICENSE).
