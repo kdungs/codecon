@@ -21,7 +21,7 @@ tests = [
     Test('./gloves', b'3\nabcde\nedcba\nabcde', b'-1'),
     Test('./gloves', b'3\nioi\nertre\nghhg', b'0'),
     # Conference Room Scheduler
-    Test('./rooms', b'3\n1-1-4\n1-2', b'Y\n2')
+    Test('./rooms', b'3\n1-1-4\n1-2', b'Y\n2 3')
 ]
 
 

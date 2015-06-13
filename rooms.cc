@@ -3,6 +3,7 @@
 #include <cassert>
 #include <fstream>
 #include <iostream>
+#include <iterator>
 #include <sstream>
 
 class Room {
@@ -30,11 +31,14 @@ class Room {
 };
 
 auto query(const std::vector<Room>& rooms, unsigned slot, unsigned nslots)
-    -> unsigned {
-  return static_cast<unsigned>(std::count_if(
-      std::begin(rooms), std::end(rooms), [slot, nslots](const Room& room) {
-        return room.available(slot, nslots);
-      }));
+    -> std::vector<std::size_t> {
+  auto roomsAvailable = std::vector<std::size_t>{};
+  for (auto i = 0ul; i < rooms.size(); ++i) {
+    if (rooms[i].available(slot, nslots)) {
+      roomsAvailable.emplace_back(i + 1);
+    }
+  }
+  return roomsAvailable;
 }
 
 auto splitAtDash(const std::string& str) -> std::vector<unsigned> {
@@ -65,13 +69,19 @@ int main() {
   while (getline(std::cin, line)) {
     auto input = splitAtDash(line);
     if (input.size() == 2) {  // it's a query
-      std::cout << query(rooms, input[0], input[1]) << '\n';
+      auto arooms = query(rooms, input[0], input[1]);
+      if (arooms.size() == 0) {
+        std::cout << "None\n";
+      } else {
+        std::copy(std::begin(arooms), std::end(arooms),
+                  std::ostream_iterator<std::size_t>(std::cout, " "));
+      }
     } else if (input.size() == 3) {  // it's a booking
-      if (input[0] >= nrooms) {
+      if (input[0] == 0 || input[0] > nrooms) {
         std::cerr << "Invalid room ID!\n";
         return EXIT_FAILURE;
       }
-      if (rooms[input[0]].book(input[1], input[2])) {
+      if (rooms[input[0] - 1].book(input[1], input[2])) {
         std::cout << "Y\n";
       } else {
         std::cout << "N\n";
