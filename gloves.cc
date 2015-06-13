@@ -45,14 +45,14 @@ class GloveMatcher {
     } else {
       cache_.emplace(reverse(item));
     }
-  };
+  }
 
  private:
   int matched_;
   std::unordered_multiset<std::string> cache_;
 };
 
-int main(int argc, char* argv[]) {
+int main() {
   auto gm = GloveMatcher{};
 
   auto line = std::string{};

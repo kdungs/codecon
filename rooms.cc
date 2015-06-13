@@ -31,10 +31,10 @@ class Room {
 
 auto query(const std::vector<Room>& rooms, unsigned slot, unsigned nslots)
     -> unsigned {
-  return std::count_if(std::begin(rooms), std::end(rooms),
-                       [slot, nslots](const Room& room) {
-                         return room.available(slot, nslots);
-                       });
+  return static_cast<unsigned>(std::count_if(
+      std::begin(rooms), std::end(rooms), [slot, nslots](const Room& room) {
+        return room.available(slot, nslots);
+      }));
 }
 
 auto splitAtDash(const std::string& str) -> std::vector<unsigned> {
@@ -42,7 +42,7 @@ auto splitAtDash(const std::string& str) -> std::vector<unsigned> {
   std::stringstream ss{str};
   std::string tmp;
   while (getline(ss, tmp, '-')) {
-    result.push_back(std::stoi(tmp));
+    result.push_back(static_cast<unsigned>(std::stoul(tmp)));
   }
   return result;
 }
@@ -51,9 +51,9 @@ int main() {
   auto line = std::string{};
   getline(std::cin, line);
 
-  auto nrooms = 0;
+  auto nrooms = 0ul;
   try {
-    nrooms = std::stoi(line);
+    nrooms = std::stoul(line);
   } catch (const std::exception&) {
     return EXIT_FAILURE;
   }
