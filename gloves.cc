@@ -9,7 +9,7 @@ auto isPalindrome(const std::string& str) -> bool {
   auto r = std::end(str);
   --r;  // since end(str) points to the first position after str
 
-  while (std::distance(l, r) > 1u) {
+  while (std::distance(l, r) > 0u) {
     if (*l != *r) {
       return false;
     }
