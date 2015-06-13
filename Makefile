@@ -1,8 +1,8 @@
 CXX=clang++
 CXXFLAGS=-O3 -Weverything -Werror -pedantic -std=c++11
-CXXFLAGS+=-Wno-c++98-compat -Wno-missing-prototypes -Wno-padded
+CXXFLAGS+=-Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-missing-prototypes -Wno-padded
 
-TARGETS=gloves rooms
+TARGETS=base_arithmetic gloves rooms
 
 all: ${TARGETS}
 
