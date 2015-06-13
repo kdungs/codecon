@@ -10,8 +10,7 @@ class Room {
  public:
   static const std::size_t NUM_SLOTS = 32;
   auto book(unsigned start, unsigned nslots) -> bool {
-    start -= 1;  // correct indexing
-    assert(start + nslots < NUM_SLOTS);
+    assert(start + nslots <= NUM_SLOTS);
     if (std::any_of(std::begin(slots_) + start,
                     std::begin(slots_) + start + nslots,
                     [](bool x) { return x; })) {
@@ -23,7 +22,6 @@ class Room {
   }
 
   auto available(unsigned slot, unsigned nslots) const noexcept -> bool {
-    slot -= 1;  // correct indexing
     assert(slot + nslots < NUM_SLOTS);
     return std::all_of(std::begin(slots_) + slot,
                        std::begin(slots_) + slot + nslots,
@@ -39,7 +37,7 @@ auto query(const std::vector<Room>& rooms, unsigned slot, unsigned nslots)
   auto roomsAvailable = std::vector<std::size_t>{};
   for (auto i = 0ul; i < rooms.size(); ++i) {
     if (rooms[i].available(slot, nslots)) {
-      roomsAvailable.emplace_back(i + 1);
+      roomsAvailable.emplace_back(i);
     }
   }
   return roomsAvailable;
@@ -53,6 +51,17 @@ auto splitAtDash(const std::string& str) -> std::vector<unsigned> {
     result.push_back(static_cast<unsigned>(std::stoul(tmp)));
   }
   return result;
+}
+
+template <typename T>
+auto printWithSpace(const std::vector<T>& xs) -> void {
+  assert(!xs.empty());
+  auto it = std::begin(xs);
+  std::cout << *it;
+  ++it;
+  for (; it != std::end(xs); ++it) {
+    std::cout << " " << *it;
+  }
 }
 
 int main() {
@@ -73,19 +82,27 @@ int main() {
   while (getline(std::cin, line)) {
     auto input = splitAtDash(line);
     if (input.size() == 2) {  // it's a query
-      auto arooms = query(rooms, input[0], input[1]);
-      if (arooms.size() == 0) {
+      auto slot = input[0] - 1;  // correct indexing
+      auto nslots = input[1];
+      auto arooms = query(rooms, slot, nslots);
+
+      if (arooms.empty()) {
         std::cout << "None\n";
       } else {
-        std::copy(std::begin(arooms), std::end(arooms),
-                  std::ostream_iterator<std::size_t>(std::cout, " "));
+        std::transform(std::begin(arooms), std::end(arooms), std::begin(arooms),
+                       [](unsigned x) { return x + 1; });  // correct indexing
+        printWithSpace(arooms);
+        std::cout << '\n';
       }
     } else if (input.size() == 3) {  // it's a booking
       if (input[0] == 0 || input[0] > nrooms) {
         std::cerr << "Invalid room ID!\n";
         return EXIT_FAILURE;
       }
-      if (rooms[input[0] - 1].book(input[1], input[2])) {
+      auto room = input[0] - 1;
+      auto slot = input[1] - 1;
+      auto nslots = input[2];
+      if (rooms[room].book(slot, nslots)) {
         std::cout << "Y\n";
       } else {
         std::cout << "N\n";
