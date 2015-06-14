@@ -5,12 +5,10 @@ CXXFLAGS+=-Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-missing-prototypes -
 SOURCES=$(wildcard src/*.cc)
 TARGETS=$(patsubst src/%.cc,bin/%,$(SOURCES))
 
-all: bin ${TARGETS}
-
-bin:
-	mkdir -p bin/
+all: ${TARGETS}
 
 bin/%: src/%.cc
+	@mkdir -p bin/
 	${CXX} ${CXXFLAGS} -o $@ $^
 
 clean:
