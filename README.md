@@ -11,7 +11,7 @@ Code licensed under terms of the [MIT License](LICENSE).
  * [x] [Expecto Palindronum](src/palindronum.cc)
  * [x] [Mug Color](src/mug.cc)
  * [x] [Laundry Day](src/laundry.cc)
- * [ ] Messed up Rugby
+ * [x] [Messed up Rugby](src/rugby.cc)
  * [ ] A Compliance Problem
  * [ ] Yet Another Compliance Problem
  * [ ] Matching Datasets
