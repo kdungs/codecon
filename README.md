@@ -12,7 +12,7 @@ Code licensed under terms of the [MIT License](LICENSE).
  * [x] [Mug Color](src/mug.cc)
  * [x] [Laundry Day](src/laundry.cc)
  * [x] [Messed up Rugby](src/rugby.cc)
- * [ ] A Compliance Problem
+ * [x] [A Compliance Problem](src/compliance.cc)
  * [ ] Yet Another Compliance Problem
  * [ ] Matching Datasets
  * [ ] Matching Datasets++
