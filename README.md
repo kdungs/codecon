@@ -13,7 +13,7 @@ Code licensed under terms of the [MIT License](LICENSE).
  * [x] [Laundry Day](src/laundry.cc)
  * [x] [Messed up Rugby](src/rugby.cc)
  * [x] [A Compliance Problem](src/compliance.cc)
- * [ ] Yet Another Compliance Problem
+ * [x] [Yet Another Compliance Problem](src/compliance2.cc)
  * [ ] Matching Datasets
  * [ ] Matching Datasets++
  * [x] [Finals Spring 2015 - Matching Gloves](src/gloves.cc)
