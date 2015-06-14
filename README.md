@@ -18,7 +18,7 @@ Code licensed under terms of the [MIT License](LICENSE).
  * [ ] Matching Datasets++
  * [x] [Finals Spring 2015 - Matching Gloves](src/gloves.cc)
  * [x] [Finals Spring 2015 - Conference Room Scheduler](src/rooms.cc)
- * [ ] Finals Spring 2015 - Golf Course
+ * [x] [Finals Spring 2015 - Golf Course](src/golf.cc)
  * [ ] Finals Spring 2015 - Maze Solver
  * [ ] Finals Spring 2015 - Apples and Oranges
  * [ ] Finals Spring 2015 - Galactic Exchange
