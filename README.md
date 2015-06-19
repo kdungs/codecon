@@ -19,7 +19,7 @@ Code licensed under terms of the [MIT License](LICENSE).
  * [x] [Finals Spring 2015 - Matching Gloves](src/gloves.cc)
  * [x] [Finals Spring 2015 - Conference Room Scheduler](src/rooms.cc)
  * [x] [Finals Spring 2015 - Golf Course](src/golf.cc)
- * [ ] Finals Spring 2015 - Maze Solver
+ * [x] [Finals Spring 2015 - Maze Solver](src/maze.cc)
  * [ ] Finals Spring 2015 - Apples and Oranges
  * [ ] Finals Spring 2015 - Galactic Exchange
  * [ ] Finals Spring 2015 - Ring of Fungi
