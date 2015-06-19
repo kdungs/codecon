@@ -33,7 +33,7 @@ auto solveBfs(const Maze& maze, const Point& from, const Point& to)
   auto prev = std::vector<Point>(maze.rows * maze.cols, {maze.rows, maze.cols});
 
   auto getAddress =
-      [&maze](const Point& p) { return p.row * maze.rows + p.col; };
+      [&maze](const Point& p) { return p.row * maze.cols + p.col; };
 
   auto getNeighbours = [&maze, &visited, &getAddress](const Point& p) {
     auto ns = std::vector<Point>{{p.row - 1, p.col},
