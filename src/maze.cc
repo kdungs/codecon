@@ -92,7 +92,7 @@ int main() {
   map.reserve(rows * cols);
   char in;
   while (std::cin >> in) {
-    map.emplace_back((in == '_'));
+    map.push_back((in == '_'));
   }
 
   auto maze = Maze{rows, cols, map};

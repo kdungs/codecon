@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <iostream>
+#include <numeric>
 #include <vector>
 
 auto solve(const std::vector<std::vector<unsigned>>& map, unsigned target,
