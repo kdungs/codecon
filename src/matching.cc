@@ -2,6 +2,7 @@
 #include <cassert>
 #include <cmath>
 #include <iostream>
+#include <iterator>
 #include <numeric>
 #include <sstream>
 #include <string>
